@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/registration.css"></linkrel>
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Dela+Gothic+One&display=swap" rel="stylesheet" />
+    <title>MedZapis</title>
+</head>
+<body>
+<div class="background">
+    
+  <div class="container-button-servises" id="go-back">
+    <a class="a-button" href="servises.html"><div class="container-servises-button">Назад</div></a>
+</div>
+
+<script>
+
+document.getElementById("go-back").addEventListener("click", () => {
+  history.back();
+});
+
+</script>
+
+    <div class="container-h1">
+    <p class="h1-registration">РЕГИСТРАЦИЯ</p>
+    </div>
+
+    <div class="container-form">
+        <div class="form-registration">
+            <form id="register-form" method="post">
+                <div class="container">
+                    <input type="text" placeholder="Ваше ФИО" name="fio" class="input-field" required>
+                    <input type="text" placeholder="Ваш Email" name="email" class="input-field" required>
+                    <input type="text" placeholder="Логин" name="login" class="input-field" required>
+                    <input type="password" placeholder="Пароль" name="password" class="input-field" required>
+                    <input type="password" placeholder="Повторите пароль" name="password-repeat" class="input-field" required>
+                    <button type="submit" id="submit" class="registerbtn">Зарегистрироваться</button>
+                </div>
+                <div class="container signin">
+                    <p>Уже есть аккаунт? <a href="login.html">Войти</a>.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <style>
+        .error {
+            background-color: #ffcccc; /* Светло-красный цвет для ошибок */
+            border: 1px solid #ff0000; /* Красная рамка для ошибок */
+        }
+    </style>
+
+<script>
+    document.getElementById('register-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    // Получаем данные формы
+    const formData = {
+        fio: event.target.fio.value.trim(),
+        email: event.target.email.value.trim(),
+        login: event.target.login.value.trim(),
+        password: event.target.password.value,
+        passwordRepeat: event.target['password-repeat'].value
+    };
+
+    // Валидация (ваш существующий код)
+    if (!validateForm(event.target, formData)) return;
+
+    try {
+        // Отправляем данные на сервер
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            window.location.href = '/login.html?registration=success'; // Редирект при успехе
+        } else {
+            showError(result.error); // Показываем ошибку сервера
+        }
+    } catch (error) {
+        console.error('Ошибка:', error);
+        showError('Ошибка соединения с сервером');
+    }
+});
+
+// Функция валидации (ваш код)
+function validateForm(form, data) {
+    const fioPattern = /^[А-Яа-яЁё\s]+$/;
+    if (!fioPattern.test(data.fio)) {
+        form.fio.classList.add('error');
+        showError('ФИО должно содержать только кириллицу');
+        return false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(data.email)) {
+        form.email.classList.add('error');
+        showError('Некорректный email');
+        return false;
+    }
+
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordPattern.test(data.password)) {
+        form.password.classList.add('error');
+        showError('Пароль: минимум 6 символов, верхний и нижний регистр');
+        return false;
+    }
+
+    if (data.password !== data.passwordRepeat) {
+        form['password-repeat'].class.add('error');
+        showError('Пароли не совпадают');
+        return false;
+    }
+
+    return true;
+}
+
+// Показ ошибок (вместо alert)
+function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    errorDiv.style.color = 'red';
+    errorDiv.style.marginTop = '10px';
+    
+    const form = document.getElementById('register-form');
+    form.appendChild(errorDiv);
+    
+    setTimeout(() => errorDiv.remove(), 5000);
+}
+</script>
+
+</body>
+</html>

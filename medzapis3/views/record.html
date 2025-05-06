@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/record.css"></linkrel>
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Dela+Gothic+One&display=swap" rel="stylesheet" />
+    <title>MedZapis</title>
+</head>
+<body>
+<div class="background">
+    
+  <div class="container-button-servises" id="go-back">
+    <a class="a-button" href="servises.html"><div class="container-servises-button">Назад</div></a>
+</div>
+
+<script>
+
+document.getElementById("go-back").addEventListener("click", () => {
+  history.back();
+});
+
+</script>
+
+    <div class="container-h1">
+    <p class="h1-registration">ЗАПИСАТЬСЯ НА ПРИЕМ</p>
+    </div>
+
+    <div class="container-form">
+      <div class="form-registration">
+          <form action="" method="post" id="appointment-form">
+              <div class="container">
+                  <select id="department" name="department" class="selectform">
+                      <option value="laboratory">Лабораторные исследования</option>
+                      <option value="cosmetology">Отделение пластической хирургии и косметологии</option>
+                      <option value="clinic">Поликлиническое отделение</option>
+                      <option value="ophthalmology">Офтальмологический центр</option>
+                      <option value="diagnostics">Услуги УЗ-диагностики/ЭКГ/ФГДС/Холтер</option>
+                  </select>
+                  <input type="text" placeholder="Напишите конкретную услугу" name="servises" required>
+                  <input type="text" placeholder="Дата" name="date" required>
+                  <input type="text" placeholder="Желаемое время" name="time" required>
+                  <button type="submit" class="registerbtn">Записаться</button>
+              </div>
+          </form>
+      </div>
+  </div>
+  
+  <style>
+      .error {
+          background-color: #ffcccc; /* Светло-красный цвет для ошибок */
+          border: 1px solid #ff0000; /* Красная рамка для ошибок */
+      }
+  </style>
+
+<script>
+  document.getElementById('appointment-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+      // Получаем значения полей
+      const services = this.servises.value.trim();
+      const date = this.date.value.trim();
+      const time = this.time.value.trim();
+
+      const inputFields = this.querySelectorAll('input');
+      inputFields.forEach(field => {
+          field.classList.remove('error');
+      });
+
+      const servicesPattern = /^[А-Яа-яЁё\s]+$/;
+      if (!servicesPattern.test(services)) {
+          this.servises.classList.add('error');
+          alert('Поле "Услуга" должно содержать только кириллицу.');
+          return;
+      }
+
+      const datePattern = /^[А-Яа-яЁё0-9\s.,-]+$/;
+      if (!datePattern.test(date)) {
+          this.date.classList.add('error');
+          alert('Поле "Дата" может содержать только кириллицу, цифры и знаки препинания.');
+          return;
+      }
+
+      const timePattern = /^[0-9:]+$/;
+      if (!timePattern.test(time)) {
+          this.time.classList.add('error');
+          alert('Поле "Желаемое время" может содержать только цифры и двоеточие.');
+          return;
+      }
+
+      alert('Форма успешно отправлена!');
+
+  });
+</script>
+</div>
+
+
+
+</body>
+</html>

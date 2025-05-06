@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/login.css"></linkrel>
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Dela+Gothic+One&display=swap" rel="stylesheet" />
+    <title>MedZapis</title>
+</head>
+<body>
+<div class="background">
+    
+  <div class="container-button-servises" id="go-back">
+    <a class="a-button" href="servises.html"><div class="container-servises-button">Назад</div></a>
+</div>
+
+<script>
+
+document.getElementById("go-back").addEventListener("click", () => {
+  history.back();
+});
+
+</script>
+
+
+    <div class="container-h1">
+    <p class="h1-registration">АВТОРИЗАЦИЯ</p>
+    </div>
+
+    <div class="container-form">
+    <div class="form-registration">
+
+
+        <form action="" method="post">
+            <div class="container">
+              
+          
+              <input type="text" placeholder="Логин" name="login" required>
+          
+              <input type="password" placeholder="Пароль" name="password" required>
+          
+              <button type="submit" class="registerbtn">Войти</button>
+            </div>
+          
+            <div class="container signin">
+              <p>Нет аккаунта? <a href="registration.html">Зарегистрироваться</a>.</p>
+            </div>
+          </form>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

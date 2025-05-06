@@ -1,0 +1,358 @@
+body{
+
+    margin: 0;
+    padding: 0;
+}
+
+.days-one-regular {
+    font-family: "Days One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+.background{
+
+    width: 100%;
+    height: 100vh;
+    background: rgb(38,39,104);
+    background: linear-gradient(180deg, rgba(38,39,104,1) 0%, rgba(51,84,162,1) 46%, rgba(74,123,180,1) 100%);
+}
+
+.navbar{
+    
+    width: 100%;
+    height: auto;
+    padding-top: 25px;
+    z-index: 2;
+}
+
+.navbar .container{
+
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.navbar-menu{
+    margin-top: 0;
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.navbar-menu li{
+
+    display: inline-block;  
+
+}
+
+.navbar-menu li a{
+
+    font-weight: 100;
+    font-family: "Didact Gothic";
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    opacity: 1;
+    padding: 10px;
+    transition: all .2s ease-in-out;
+}
+
+.navbar-menu li a:hover{
+
+    opacity: 0.6;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.navbar-wrap{
+    margin-top: 0px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.navbar-brand{
+
+    font-size: 26px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: all .2s ease-in-out;
+    font-weight: 800;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+
+.container-preview{
+
+    display: flex;
+    margin-bottom: 0;
+    height: 88vh;
+}
+
+.preview-text{
+    text-align: left;
+    width: 50%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.h1-preview{
+    margin: 0;
+    font-size: 50px;
+    font-weight: 900;
+    color: white;
+    font-family: Dela Gothic One;
+}
+
+.text-preview{
+    margin: 0;
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+    font-family: "Didact Gothic";
+}
+
+.preview-image{
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    position:relative;
+}
+
+.image-preview{
+
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+.container-about{
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.about-h1{
+    
+    width: 45%;
+}
+
+.about-text{
+
+    width: 55%;
+}
+
+.container-about-h1{
+
+    height: 100%;
+}
+
+.h1-about{
+
+    width: fit-content;
+    margin: 0 auto;
+    color: #497AB3;
+    font-size: 50px;
+    font-family: Dela Gothic One;
+    font-weight: Regular;
+
+}
+
+.text-about{
+
+    width: fit-content;
+    margin: 0 auto;
+    opacity: 0.6;
+    font-size: 20px;
+    font-weight: 900;
+    max-width: 550px;
+    font-family: "Didact Gothic";
+}
+
+
+
+
+
+
+
+
+
+.container-servises{
+    padding: 10px;
+    padding-bottom: 70px;
+    max-width: 500px;
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 40px;
+    background: rgb(56,101,155);
+    background: linear-gradient(180deg, rgba(56,101,155,1) 0%, rgba(65,90,148,1) 46%, rgba(38,39,104,1) 100%);
+}
+
+.h1-servises{
+    width: auto;
+    color: rgba(255, 255, 255, 1);
+    font-family: Dela Gothic One;
+    font-weight: Regular;
+    font-size: 34px;
+    opacity: 1;
+    text-align: center;
+}
+
+.container-servises-text{
+
+    width: 90%;
+    margin: 0 auto;
+}
+
+.text-servises{
+
+    font-weight: 500;
+    font-family: "Didact Gothic";
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.a-button{
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    font-weight: 00;
+    font-family: "Didact Gothic";
+}
+
+.container-button-servises{
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.container-servises-button{
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 38px 13px rgba(0, 0, 0, 0.34);
+    background: rgb(92, 152, 225);
+    transition: 0.3s;  
+}
+
+.container-servises-button:hover{
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 38px 13px rgba(0, 0, 0, 0.34);
+    background: rgb(104, 172, 255);
+    scale: 1.1;
+    transition: 0.3s;
+}
+
+
+
+
+
+.preview-svyaz{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 50%;
+    position:relative;
+}
+
+.h1-preview2{
+    margin: 0;
+    font-size: 25px;
+    opacity: 0.7;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    font-family: Dela Gothic One;
+}
+
+.container-preview-text2{
+    
+    width: 50%;
+    margin: 0 auto;
+}
+
+.text-preview2{
+    margin: 0;
+    opacity: 0.7;
+    font-size: 25px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    font-family: "Didact Gothic";
+    padding-bottom: 20px;
+}
+
+.container-zapisi{
+
+    display: flex;
+}
+
+.container-records{
+
+    width: 50%;
+
+}
+
+.container-records-text{
+
+    width: 50%;
+}
+
+.h1-records{
+
+    width: fit-content;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 50px;
+    opacity: 0.8;
+    font-family: Dela Gothic One;
+    font-weight: Regular;
+
+}
+
+.footer{
+
+    background-color: rgb(44, 41, 41);
+    height: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.h1-footer{
+
+    text-align: center;
+    font-family: Dela Gothic One;
+    color: #497AB3;
+}
+
+.p-footer{
+
+    text-align: center;
+    font-family: "Didact Gothic";
+    color: #ffffff;
+}
